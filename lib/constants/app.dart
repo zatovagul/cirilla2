@@ -6,8 +6,8 @@ const String CONSUMER_SECRET = 'cs_3e0e668c3fdc884b685cd55438baf2b22c7a3791';
 
 const String REST_PREFIX = 'wp-json';
 
-const String defaultLanguage = 'en';
+const String defaultLanguage = 'ru';
 
-const List<String> languageSupport = ['en', 'ar'];
+const List<String> languageSupport = ['ru'];//['en', 'ar'];
 
 const String googleClientId = '295269595518-e7s01ueadskq7sbg2k4g4dfnefpmd7vt.apps.googleusercontent.com';

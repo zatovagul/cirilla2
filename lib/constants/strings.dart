@@ -2,7 +2,7 @@ class Strings {
   Strings._();
 
   // General
-  static const String appName = 'Cirilla';
+  static const String appName = 'Приложение для мигрантов';
   static const String fontFamily = 'Poppins';
   static const String tabActive = 'screens_home';
 
