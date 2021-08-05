@@ -119,7 +119,7 @@ class Widgets {
     bool enableLogo = get(data.configs, ['enableLogo'], true);
 
     // Logo Text
-    String logoText = get(data.configs, ['logoText', languageKey], 'Home');
+    String logoText = get(data.configs, ['logoText', languageKey], '');
 
     // Logo Image
     String imageLogo = get(data.configs, ['imageLogo', 'src'], '');

@@ -48,7 +48,7 @@ class LayoutDefault extends StatelessWidget with AppBarMixin, Utility {
           elevation: 0,
           leading: leading(),
           titleSpacing: 20,
-          actions: [PostAction(post: post), SizedBox(width: layoutPadding)],
+          //actions: [PostAction(post: post), SizedBox(width: layoutPadding)],
         ),
         SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: layoutPadding, vertical: 8),
@@ -67,6 +67,7 @@ class LayoutDefault extends StatelessWidget with AppBarMixin, Utility {
             child: PostName(post: post),
           ),
         ),
+        if(false)
         SliverPadding(
           padding: EdgeInsets.only(left: layoutPadding, right: layoutPadding, bottom: 24),
           sliver: SliverToBoxAdapter(
@@ -86,12 +87,14 @@ class LayoutDefault extends StatelessWidget with AppBarMixin, Utility {
           padding: EdgeInsets.only(left: layoutPadding, right: layoutPadding, top: 32, bottom: 24),
           sliver: PostContent(post: post),
         ),
+        if(false)
         SliverPadding(
           padding: EdgeInsets.only(bottom: 32),
           sliver: SliverToBoxAdapter(
             child: PostTagWidget(post: post, paddingHorizontal: layoutPadding),
           ),
         ),
+        if(false)
         SliverPadding(
           padding: EdgeInsets.only(left: layoutPadding, right: layoutPadding, bottom: 24),
           sliver: PostComments(post: post),
