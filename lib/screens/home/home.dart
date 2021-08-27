@@ -6,6 +6,7 @@ import 'package:cirilla/store/store.dart';
 import 'package:cirilla/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:provider/provider.dart';
@@ -78,12 +79,45 @@ class _HomeScreenState extends State<HomeScreen> with Utility, MessagingMixin {
         return Stack(
           children: [
             widget.store.data == null ? Empty() : buildOnBoarding(context, widget.store.enableGetStart),
+            if(showInfo)
+              getInfoText(),
             SplashScreen(loading: loading, color: Colors.white),
           ],
         );
       },
     );
   }
+  /// по просьбе заказчика
+  bool showInfo = true;
+  Widget getInfoText()=>Container(
+    color: Colors.white,
+    child: SafeArea(
+      child: Stack(
+        children: [
+          Center(
+            child: Html(data: """
+      <p style="text-align:center;color:red"><strong>Уважаемые гости,</strong><br><strong>мы рады приветствовать вас на территории Республики Дагестан!</strong></p>
+<p style="text-align:center">Приезжая к нам в республику, вы имеете разные цели и планы, но несмотря на это, вы все будете жить рядом и взаимодействовать с местными жителями &ndash; многонациональным народом Дагестана.</p>
+<p style="text-align:center">Так же, как и вы, мы &ndash; жители республики &ndash; заинтересованы в том, чтобы наше взаимодействие было мирным, продуктивным и способствовало как решению ваших целей, как стабильности и процветанию нашего региона.</p>
+<p style="text-align:center">Для того, чтобы ваше общение с местными жителями было комфортным, важно знать местную культуру и обычаи: что принято, а что не приветствуется или воспринимается плохо. Ведь культура и обычаи жителей разных стран и даже регионов одной страны имеют сильные отличия.</p>
+<p style="text-align:center">Дорогие гости, с помощью данного приложения мы хотим коротко и просто рассказать вам о самой республике, законах и правилах, по которым здесь живут люди, где и у кого искать помощь и совет, чтобы вы могли избежать неприятных жизненных ситуаций, связанных с незнанием законов <br>Российской Федерации.</p>
+      """,),
+          ),
+          Positioned(
+            right: 10, bottom: 10,
+            child: SizedBox(
+              width: 50,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: (){setState((){showInfo = false;});},
+                  style: ElevatedButton.styleFrom(shape: CircleBorder(), padding: EdgeInsets.zero),
+                  child: Center(child: Icon(Icons.keyboard_arrow_right_outlined, color: Colors.white, size: 40,)),
+                )),
+          )
+        ],
+      ),
+    ),
+  );
 
   Widget buildOnBoarding(BuildContext context, bool isDisplay) {
     final WidgetConfig widgetConfig = widget.store.data.settings['general'].widgets['general'];

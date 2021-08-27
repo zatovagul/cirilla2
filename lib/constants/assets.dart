@@ -8,7 +8,7 @@ class Assets {
 
   static const String bannerCategory = "assets/images/bg_category.png";
 
-  static const String logo = "assets/images/logo.jpeg";
+  static const String logo = "assets/images/logo1.jpg";
 
   static const String noImageUrl = "https://cdn.rnlab.io/placeholder-416x416.png";
 
